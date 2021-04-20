@@ -1,6 +1,13 @@
 version: '3.7'
 
 services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/
+      - ./public:/var/www/html
   db:
     image: mariadb
     ports:
