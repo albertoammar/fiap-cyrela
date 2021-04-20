@@ -53,5 +53,6 @@ COPY --from=build /app/vendor /var/www/vendor
 
 RUN cd /var/www/ && composer dump-autoload -o
 
+WORKDIR /var/www
 RUN chown -R $USER:www-data /var/www/storage/*
 RUN chmod -R 0777 /var/www/storage
