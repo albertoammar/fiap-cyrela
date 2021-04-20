@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/clientes', function (Request $request) {
+    return \App\Models\User::query()->limit(20)->get()->toArray();
+});
+
+
+Route::get('/projetos', function (Request $request) {
+    return \App\Models\Projects::query()->limit(20)->get()->toArray();
 });
